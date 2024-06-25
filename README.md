@@ -95,7 +95,7 @@ generate the manifests
 make manifests
 ```
 
-## create your first api
+## Create your first api
 
 Terminology
 
@@ -189,7 +189,7 @@ metadata:
 EOF
 ```
 
-## adding fields with validation
+## Adding parameters with validation
 
 [crd generation](https://book.kubebuilder.io/reference/generating-crd)
 [crd validation](https://book.kubebuilder.io/reference/markers/crd-validation)
@@ -248,7 +248,7 @@ spec:
 EOF
 ```
 
-## decorations printcolumn, categories
+## Decorations printcolumn, categories
 
 ```go
 // +kubebuilder:object:root=true
@@ -271,7 +271,7 @@ k apply -f artifacts/foo.example.com_tests.yaml
 ```
 
 
-## add additional constraints
+## Add additional parameters with constraints
 
 [crd validation](https://book.kubebuilder.io/reference/markers/crd-validation)
 
