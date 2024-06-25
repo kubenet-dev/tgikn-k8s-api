@@ -31,7 +31,7 @@ install kubectl
 
 ## setup your project
 
-make a  directory of the project with apis directory
+make a directory of the project with apis directory
 
 ```
 mkdir test; cd test
