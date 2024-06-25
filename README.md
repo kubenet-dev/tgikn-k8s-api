@@ -3,6 +3,7 @@
 background information on the exercise
 
 [kubebuilder](https://book.kubebuilder.io/introduction)
+
 [crds](https://book.kubebuilder.io/reference/generating-crd)
 
 ## Getting started
@@ -192,6 +193,7 @@ EOF
 ## Adding parameters with validation
 
 [crd generation](https://book.kubebuilder.io/reference/generating-crd)
+
 [crd validation](https://book.kubebuilder.io/reference/markers/crd-validation)
 
 ```go
@@ -249,6 +251,8 @@ EOF
 ```
 
 ## Decorations printcolumn, categories
+
+change the layout of the cli output and add the api to a category
 
 ```go
 // +kubebuilder:object:root=true
