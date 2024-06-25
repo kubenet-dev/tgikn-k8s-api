@@ -1,4 +1,4 @@
-# tgikn kubernetes api
+# TGIKN kubernetes api
 
 background information on the exercise
 
