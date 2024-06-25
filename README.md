@@ -282,7 +282,7 @@ k apply -f artifacts/foo.example.com_tests.yaml
 ```go
 type TestSpec struct {
     // +kubebuilder:validation:MaxItems=2
-	// ListA defines a list of A
+    // ListA defines a list of A
     ListA []string `json:"listA,omitempty"`
 
     // +kubebuilder:validation:Enum=unknown;gnmi;netconf;noop;ssh;
