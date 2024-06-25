@@ -5,7 +5,7 @@ background information on the exercise
 [kubebuilder](https://book.kubebuilder.io/introduction)
 [crds](https://book.kubebuilder.io/reference/generating-crd)
 
-## getting started
+## Getting started
 
 ### option 1
 
@@ -29,17 +29,23 @@ install kubectl
 
 [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
-## setup your project
+## Start kind cluster
 
-make a directory of the project with apis directory
+```bash
+kind create cluster --name kubenet
+```
+
+## Setup your project
+
+We demonstrate the manual way; in reality this will be scafolded
+
+Make a directory of the project with apis directory
 
 ```
 mkdir test; cd test
-```
-
-```
 mkdir -p apis/
 ```
+
 initialize the go project
 
 ```
@@ -83,17 +89,21 @@ $(CONTROLLER_GEN): $(LOCALBIN)
 	test -s $(LOCALBIN)/controller-gen || GOBIN=$(LOCALBIN) go install sigs.k8s.io/controller-tools/cmd/controller-gen@$(CONTROLLER_TOOLS_VERSION)
 ```
 
+generate the manifests
+
 ```bash
 make manifests
 ```
 
 ## create your first api
 
-group: a collection of related functionality
+Terminology
+
+- group: a collection of related functionality
 version: each group has one or more versions, which, as the name suggests, allow us to change how an API works over time
-kind: what your api is about
-resources: (plural/lowercase of the kind) how you address the resource from http and storage (PUT, POST, PATCH, etc)
-subresource: tests/status
+- kind: what your api is about
+- resources: (plural/lowercase of the kind) how you address the resource from http and storage (PUT, POST, PATCH, etc)
+- subresource: tests/status
 
 [gvk](https://book.kubebuilder.io/cronjob-tutorial/gvks)
 
@@ -164,6 +174,8 @@ generate your api
 make manifests
 ```
 
+apply the crd to the cluster
+
 ```
 k apply -f artifacts
 ```
@@ -179,6 +191,7 @@ EOF
 
 ## adding fields with validation
 
+[crd generation](https://book.kubebuilder.io/reference/generating-crd)
 [crd validation](https://book.kubebuilder.io/reference/markers/crd-validation)
 
 ```go
