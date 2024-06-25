@@ -285,19 +285,19 @@ type TestSpec struct {
 	// ListA defines a list of A
     ListA []string `json:"listA,omitempty"`
 
-	// +kubebuilder:validation:Enum=unknown;gnmi;netconf;noop;ssh;
-	// +kubebuilder:default:="gnmi"
-	// Protocol defines the protocol to connect to the device
-	Protocol Protocol `json:"protocol"`
+    // +kubebuilder:validation:Enum=unknown;gnmi;netconf;noop;ssh;
+    // +kubebuilder:default:="gnmi"
+    // Protocol defines the protocol to connect to the device
+    Protocol Protocol `json:"protocol"`
 
-	// +kubebuilder:validation:Pattern=`(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))`
-	// Address defines the ip address to connect to the host
-	Address string `json:"address"`
+    // +kubebuilder:validation:Pattern=`(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))`
+    // Address defines the ip address to connect to the host
+    Address string `json:"address"`
 
-	// +kubebuilder:validation:Minimum=1
-	// +kubebuilder:validation:Maximum=200
-	// +kubebuilder:default:=100
-	Priority   *uint8 `json:"priority,omitempty"`
+    // +kubebuilder:validation:Minimum=1
+    // +kubebuilder:validation:Maximum=200
+    // +kubebuilder:default:=100
+    Priority   *uint8 `json:"priority,omitempty"`
 }
 ```
 
