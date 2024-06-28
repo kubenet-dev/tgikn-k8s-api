@@ -86,7 +86,6 @@ manifests: controller-gen ## Generate WebhookConfiguration, ClusterRole and Cust
 .PHONY: controller-gen
 controller-gen: $(CONTROLLER_GEN) ## Download controller-gen locally if necessary.
 $(CONTROLLER_GEN): $(LOCALBIN)
-	echo $(LOCALBIN)
 	test -s $(LOCALBIN)/controller-gen || GOBIN=$(LOCALBIN) go install sigs.k8s.io/controller-tools/cmd/controller-gen@$(CONTROLLER_TOOLS_VERSION)
 ```
 
@@ -101,7 +100,7 @@ make manifests
 Terminology
 
 - group: a collection of related functionality
-version: each group has one or more versions, which, as the name suggests, allow us to change how an API works over time
+- version: each group has one or more versions, which, as the name suggests, allow us to change how an API works over time
 - kind: what your api is about
 - resources: (plural/lowercase of the kind) how you address the resource from http and storage (PUT, POST, PATCH, etc)
 - subresource: tests/status
@@ -288,7 +287,7 @@ type TestSpec struct {
     // +kubebuilder:validation:Enum=unknown;gnmi;netconf;noop;ssh;
     // +kubebuilder:default:="gnmi"
     // Protocol defines the protocol to connect to the device
-    Protocol Protocol `json:"protocol"`
+    Protocol string `json:"protocol"`
 
     // +kubebuilder:validation:Pattern=`(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))`
     // Address defines the ip address to connect to the host
